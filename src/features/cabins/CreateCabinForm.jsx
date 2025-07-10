@@ -157,7 +157,7 @@ function CreateCabinForm({cabinToEdit = {}, onCloseModal}) {
 
             <FormRow>
                 {/* type is an HTML attribute! */}
-                <Button v
+                <Button
                     ariation="secondary" 
                     type="reset"
                     onClick={onCloseModal?.()}
