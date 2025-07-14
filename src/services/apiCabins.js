@@ -2,20 +2,28 @@ import supabase, { supabaseUrl } from "./supabase";
 
 
 // function to load all bookings
-export async function getBookings({filter}) {
+export async function getBookings({filter, sortBy}) {
 
     let query = supabase
     .from('bookings')
     .select('*, cabins(name), guest(email,fullName)')
 
-    if (filter !== null) query.eq(filter.field, filter.value)
 
-    const {data, error} = await query
+    // filter
+    if (filter) query.eq(filter.field, filter.value)
     // eq. equal
+        
+    //sort
+    if(sortBy) query.order(sortBy.sort, {ascending: sortBy.direction === 'asc'})
+    
+    const {data, error} = await query
+
     if(error) {
         console.error(error);
         throw new Error('cabins could not be loaded')
     }
+
+
 
     return data
 }
