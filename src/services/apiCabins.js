@@ -1,6 +1,20 @@
 import supabase, { supabaseUrl } from "./supabase";
 
 
+// function to load all bookings
+export async function getBookings() {
+    const {data, error} = await supabase
+    .from('bookings')
+    .select('*, cabins(name), guest(email,fullName)')
+
+    if(error) {
+        console.error(error);
+        throw new Error('cabins could not be loaded')
+    }
+
+    return data
+}
+
 // funtion to load cabins from supabase
 export async function getCabins () {
     const { data, error } = await supabase
