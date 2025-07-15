@@ -1,12 +1,13 @@
 import supabase, { supabaseUrl } from "./supabase";
+import { PAGE_SIZE } from "../utils/constant";
 
 
 // function to load all bookings
-export async function getBookings({filter, sortBy}) {
+export async function getBookings({filter, sortBy, page}) {
 
     let query = supabase
     .from('bookings')
-    .select('*, cabins(name), guest(email,fullName)')
+    .select('*, cabins(name), guest(email,fullName)', {count: 'exact'})
 
 
     // filter
@@ -15,8 +16,15 @@ export async function getBookings({filter, sortBy}) {
         
     //sort
     if(sortBy) query.order(sortBy.sort, {ascending: sortBy.direction === 'asc'})
+
+    if(page){ 
+        const from = (page - 1) * PAGE_SIZE
+        const to = from + PAGE_SIZE - 1
+        // const to = ((page - 1) + 1 ) * PAGE_SIZE
+        query = query.range(from, to)
+    }
     
-    const {data, error} = await query
+    const {data, count, error} = await query
 
     if(error) {
         console.error(error);
@@ -24,8 +32,8 @@ export async function getBookings({filter, sortBy}) {
     }
 
 
-
-    return data
+    // console.log(data)
+    return {data, count}
 }
 
 // funtion to load cabins from supabase
