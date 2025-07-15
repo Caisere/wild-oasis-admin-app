@@ -5,6 +5,7 @@ import { useBookings } from "./useBookings";
 import Spinner from "../../ui/Spinner";
 import Empty from '../../ui/Empty'
 import Pagination from "../../ui/Pagination";
+import { Outlet } from "react-router-dom";
 
 function BookingTable() {
     // const bookings = [];

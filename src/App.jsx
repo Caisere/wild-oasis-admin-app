@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast"
 
 const DashBoard = lazy(() => import('./pages/Dashboard'))
 const Bookings = lazy(() => import('./pages/Bookings'))
+const Booking = lazy(() => import('./pages/Booking'))
 const Cabins = lazy(() => import('./pages/Cabins'))
 const Users = lazy(() => import('./pages/Users'))
 const Settings = lazy(() => import('./pages/Settings'))
@@ -34,7 +35,8 @@ function App () {
                     <Route element={<AppLayout />}>
                         <Route index element={<Navigate replace to='dashboard' />} />
                         <Route path="dashboard" element={<DashBoard/>} />
-                        <Route path="bookings" element={<Bookings/>} /> 
+                        <Route path="bookings" element={<Bookings/>} />
+                        <Route path="bookings/:bookingId" element={<Booking />} />
                         <Route path="cabins" element={<Cabins/>} />
                         <Route path="users" element={<Users/>} />
                         <Route path="settings" element={<Settings/>} />
