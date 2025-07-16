@@ -74,7 +74,8 @@ function App () {
                         maxWidth: '500px',
                         padding: '16px 24px',
                         backgroundColor: 'var(--colot-grey-0)',
-                        color: 'var(--color-grey-700)'
+                        color: 'var(--color-grey-700)',
+                        textAlign: "center"
                     }
                 }}
             />
