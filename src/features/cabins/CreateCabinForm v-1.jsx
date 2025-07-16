@@ -39,7 +39,6 @@ function CreateCabinForm() {
 
 
     function CreateCabin(data) {
-        // console.log(data)
         // const image = {...data, image: data?.image[0].name}
         mutate({...data, image: data?.image[0]})
     }

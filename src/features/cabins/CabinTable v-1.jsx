@@ -1,11 +1,10 @@
-import React from 'react'
 import styled from "styled-components";
+import { useCabins } from './useCabins';
 
 
 //components
 import Spinner from '../../ui/Spinner'
 import CabinRow from './CabinRow';
-import { useCabins } from './useCabins';
 
 
 const Table = styled.div`
@@ -38,7 +37,6 @@ const TableHeader = styled.header`
 function CabinTable (){
     // error
     const {cabins, isLoading, error} = useCabins()
-    // console.log(cabins)
 
     if(isLoading) return  <Spinner />    
     return (

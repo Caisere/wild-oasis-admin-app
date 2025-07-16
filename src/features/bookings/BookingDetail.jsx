@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+import { HiArrowDownOnSquare, HiArrowUpOnSquare } from "react-icons/hi2";
+import { useMoveBack } from "../../hooks/useMoveBack";
+import { useBooking } from "./useBooking";
+import { useNavigate } from "react-router-dom";
+import { useCheckOut } from "../check-in-out/useCheckout";
+import { useDeleteBooking } from "./useDeleteBooking";
+
+// ui components
 import BookingDataBox from "./BookingDataBox";
 import Row from "../../ui/Row";
 import Heading from "../../ui/Heading";
@@ -11,12 +19,7 @@ import Spinner from '../../ui/Spinner'
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Modal from "../../ui/Modal";
 
-import { HiArrowDownOnSquare, HiArrowUpOnSquare } from "react-icons/hi2";
-import { useMoveBack } from "../../hooks/useMoveBack";
-import { useBooking } from "./useBooking";
-import { useNavigate } from "react-router-dom";
-import { useCheckOut } from "../check-in-out/useCheckout";
-import { useDeleteBooking } from "./useDeleteBooking";
+
 
 const HeadingGroup = styled.div`
     display: flex;
@@ -29,17 +32,22 @@ const Span = styled.span`
 `
 
 function BookingDetail() {
+    // useBooking data
     const {booking, isLoading} = useBooking()
 
+    // useCheckout data
     const {checkout, isCheckingOut} = useCheckOut()
-    
+
+    // useDeletingBooking data
     const {deleteBooking, isDeletingBooking} = useDeleteBooking()
 
     const navigate = useNavigate()
     
     const moveBack = useMoveBack();
     
+    // ui for loading state
     if(isLoading) return <Spinner />
+    
     
     const {status, id: bookingId} = booking
 
@@ -95,7 +103,7 @@ function BookingDetail() {
                                 ,{
                                     //always happen if success or error
                                     onSettled: () => {
-                                        navigate(-1)
+                                        moveBack()
                                     }
                                 }
                                 /* Another way to achieve

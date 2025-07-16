@@ -1,18 +1,17 @@
 import styled from "styled-components";
 import {formatCurrency} from '../../utils/helpers'
-import Row from "../../ui/Row";
-// import Button from "../../ui/Button";
-
-import React from 'react'
-import CreateCabinForm from "./CreateCabinForm";
+import { useCreateCabin } from "./useCreateCabin";
 import { useDeleteCabin } from "./useDeleteCabin";
 import { HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
-import { useCreateCabin } from "./useCreateCabin";
+
+
+// ui components
+import CreateCabinForm from "./CreateCabinForm";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Table from "../../ui/Table";
-// import Menus from "../../ui/Menus";
 
+// styled components
 const TableRow = styled.div`
     display: grid;
     grid-template-columns: 0.6fr 1.8fr 2.2fr 1fr 1fr 1fr;
@@ -54,22 +53,26 @@ const Discount = styled.div`
 
 
 
-
+// main component
 function CabinRow ({cabin})  {
 
-
+    // useDeleteCabin data from the hook
     const {isDeleting, deleteCabins} = useDeleteCabin()
+
+    // useCreateCabin data from hook
     const {isCreating, createCabin} = useCreateCabin()
 
     
     const {name, maxCapacity, regularPrice, discount, image, id: cabinId, description} = cabin
 
 
+    // deleting cabin function
     function handleDeleteCabin() {
         // console.log('deleting')
         deleteCabins(cabinId)
     }
 
+    // duplicate cabin function
     function handleCabinDuplicate () {
         createCabin({
             name: `A copy of ${name} cabin`,

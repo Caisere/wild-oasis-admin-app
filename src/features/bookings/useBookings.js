@@ -9,7 +9,7 @@ export function useBookings() {
 
     // Filter bookings
     const filterBookings = searchParams.get('status')
-    // console.log(filterBookings)
+
     
     const filter = !filterBookings || filterBookings === 'all' ? null : {field: 'status', value: filterBookings}
 
@@ -47,7 +47,7 @@ export function useBookings() {
     }
     
 
-    // console.log(bookings)
+
     return {bookings, count, isLoading, error}
 }
 

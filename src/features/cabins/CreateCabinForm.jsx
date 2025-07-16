@@ -42,9 +42,7 @@ function CreateCabinForm({cabinToEdit = {}, onCloseModal}) {
 
     // function to create or edit cabin(s)
     function CreateEditCabin(data) {
-        // console.log(data)
         const image = typeof data.image === 'string' ? data.image : data.image[0]
-        // console.log(image)
 
         //edit cabin
         if(isEditSession) {

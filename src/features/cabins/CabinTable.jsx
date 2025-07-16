@@ -14,11 +14,13 @@ function CabinTable (){
     const {cabins, isLoading, error} = useCabins()
     const [searchParams] = useSearchParams()
 
+    // ui for loading state
     if (isLoading) return  <Spinner />    
+
+    // ui error 
     if (error) return <>Error Loading data: {error.message}</>
 
     const filtered = searchParams.get('discount') || 'all'
-    // console.log(filtered)
 
 
     let filteredCabins;
@@ -27,14 +29,14 @@ function CabinTable (){
     if (filtered === 'no-discount') filteredCabins = cabins.filter(cabin => cabin.discount === 0)
     if (filtered === 'with-discount') filteredCabins = cabins.filter(cabin => cabin.discount > 0)
 
-    // console.log(filteredCabins)
+
     
     // Sort 2
     const sortBy = searchParams.get('sortBy') || 'name-asc'
     const [filter, direction] = sortBy.split('-')
     const modifier = direction === 'asc' ? 1 : -1;
     const sortedCabin = filteredCabins.sort((a,b) => (a[filter] - b[filter]) * modifier)
-    // console.log(sortedCabin)
+
 
     return (
         <Menus>

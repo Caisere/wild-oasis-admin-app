@@ -1,9 +1,11 @@
+import { useUpdateSetting } from './useUpdateSetting';
+import { useSettings } from './useSettings';
+
+// ui components
 import Form from '../../ui/Form';
 import FormRow from '../../ui/FormRow';
 import Input from '../../ui/Input';
 import Spinner from '../../ui/Spinner';
-import { useSettings } from './useSettings';
-import { useUpdateSetting } from './useUpdateSetting';
 
 function UpdateSettingsForm() {
     const {isUpdating, updateSetting} = useUpdateSetting()

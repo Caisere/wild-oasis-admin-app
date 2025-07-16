@@ -1,20 +1,23 @@
+import { useBookings } from "./useBookings";
+
+//ui components
 import BookingRow from "./BookingRow";
 import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
-import { useBookings } from "./useBookings";
 import Spinner from "../../ui/Spinner";
 import Empty from '../../ui/Empty'
 import Pagination from "../../ui/Pagination";
-import { Outlet } from "react-router-dom";
 
 function BookingTable() {
-    // const bookings = [];
+    // datat from the useBooking hook
     const { isLoading, bookings, count } = useBookings()
 
+    // on loading state
     if (isLoading) return <Spinner />
 
+    // ui when there is no booking
     if (!bookings?.length) <Empty resourceName='bookings' />
-    // console.log(bookings)
+
 
     return (
         <Menus>
