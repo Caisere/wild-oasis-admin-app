@@ -45,6 +45,7 @@ function Filter({ filterField, options }) {
 	function handleFilterCabin(value) {
 		// console.log(value)
 		searchParams.set(filterField, value);
+        if(searchParams.get('page')) searchParams.set('page', 1)
 		setSearchParams(searchParams);
 	}
 
@@ -57,7 +58,7 @@ function Filter({ filterField, options }) {
 					active={currentFilter === option.value}
 					disabled={currentFilter === option.value}
 				>
-						{option.label}
+					{option.label}
 				</FilterButton>
 			))}
 		</StyledFilter>

@@ -14,6 +14,7 @@ const Account = lazy(() => import('./pages/Account'))
 const Login = lazy(() => import('./pages/Login'))
 const PageNotFound = lazy(() => import('./pages/PageNotFound'))
 const AppLayout = lazy(() => import('./ui/AppLayout'))
+const CheckIn = lazy(() => import('./pages/Checkin')) 
 
 
 const queryClient = new QueryClient({
@@ -37,6 +38,7 @@ function App () {
                         <Route path="dashboard" element={<DashBoard/>} />
                         <Route path="bookings" element={<Bookings/>} />
                         <Route path="bookings/:bookingId" element={<Booking />} />
+                        <Route path="checkin/:bookingId" element={<CheckIn />} />
                         <Route path="cabins" element={<Cabins/>} />
                         <Route path="users" element={<Users/>} />
                         <Route path="settings" element={<Settings/>} />
