@@ -3,6 +3,7 @@ import { lazy } from "react"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 import { Toaster } from "react-hot-toast"
+import ProtectedRoute from "./ui/ProtectedRoute"
 
 const DashBoard = lazy(() => import('./pages/Dashboard'))
 const Bookings = lazy(() => import('./pages/Bookings'))
@@ -15,6 +16,7 @@ const Login = lazy(() => import('./pages/Login'))
 const PageNotFound = lazy(() => import('./pages/PageNotFound'))
 const AppLayout = lazy(() => import('./ui/AppLayout'))
 const CheckIn = lazy(() => import('./pages/Checkin')) 
+
 
 
 const queryClient = new QueryClient({
@@ -33,7 +35,12 @@ function App () {
             <ReactQueryDevtools initialIsOpen={false} />
             <BrowserRouter>
                 <Routes>
-                    <Route element={<AppLayout />}>
+                    <Route element={
+                            <ProtectedRoute>
+                                <AppLayout />
+                            </ProtectedRoute>
+                        }
+                    >
                         <Route index element={<Navigate replace to='dashboard' />} />
                         <Route path="dashboard" element={<DashBoard/>} />
                         <Route path="bookings" element={<Bookings/>} />
