@@ -4,6 +4,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 import { Toaster } from "react-hot-toast"
 import ProtectedRoute from "./ui/ProtectedRoute"
+// import DarkModeProvider from "./context/DarkModeContext"
+import AppLayout from "./ui/AppLayout"
 
 const DashBoard = lazy(() => import('./pages/Dashboard'))
 const Bookings = lazy(() => import('./pages/Bookings'))
@@ -14,7 +16,7 @@ const Settings = lazy(() => import('./pages/Settings'))
 const Account = lazy(() => import('./pages/Account'))
 const Login = lazy(() => import('./pages/Login'))
 const PageNotFound = lazy(() => import('./pages/PageNotFound'))
-const AppLayout = lazy(() => import('./ui/AppLayout'))
+// const AppLayout = lazy(() => import('./ui/AppLayout'))
 const CheckIn = lazy(() => import('./pages/Checkin')) 
 
 
@@ -31,6 +33,7 @@ const queryClient = new QueryClient({
 
 function App () {
     return (
+        // <DarkModeProvider>
         <QueryClientProvider client={queryClient}>
             <ReactQueryDevtools initialIsOpen={false} />
             <BrowserRouter>
@@ -78,8 +81,9 @@ function App () {
                         textAlign: "center"
                     }
                 }}
-            />
+                />
         </QueryClientProvider>
+        // </DarkModeProvider>
     )
 }
 

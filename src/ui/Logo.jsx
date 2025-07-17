@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { useDarkMode } from "../context/DarkModeContext";
 
 const StyledLogoLink = styled(NavLink)`
     text-align: center;
@@ -11,9 +12,13 @@ const Img = styled.img`
 `;
 
 function Logo() {
+    const {isDarkMode} = useDarkMode()
+
+    const src = isDarkMode ? '/logo-dark.png' : "/logo-light.png"
+
     return (
         <StyledLogoLink to='/dashboard'>
-            <Img src="/logo-light.png" alt="Logo" />
+            <Img src={src} alt="Logo" />
         </StyledLogoLink>
     );
 }

@@ -21,6 +21,7 @@ const StyledCheckbox = styled.div`
         display: flex;
         align-items: center;
         gap: 0.8rem;
+        color: var(--color-grey-900)
     }
 `;
 

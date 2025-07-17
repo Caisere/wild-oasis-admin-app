@@ -51,7 +51,7 @@ const StyledButton = styled.button`
     padding: 1.2rem 2.4rem;
     font-size: 1.4rem;
     transition: all 0.2s;
-    color: #000;
+    color: var(--color-grey-900);
     display: flex;
     align-items: center;
     gap: 1.6rem;

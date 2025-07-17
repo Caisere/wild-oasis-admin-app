@@ -20,6 +20,10 @@ const StyledDiv = styled.div`
 	gap: 8px;
 `;
 
+const H3 = styled.h3`
+    color: #000;
+`
+
 // const originalSettings = {
 //   minBookingLength: 3,
 //   maxBookingLength: 30,
@@ -140,7 +144,7 @@ function Uploader() {
 
 	return (
 		<StyledDiv>
-			<h3>SAMPLE DATA</h3>
+			<H3>SAMPLE DATA</H3>
 
 			<Button onClick={uploadAll} disabled={isLoading}>
 				Upload ALL

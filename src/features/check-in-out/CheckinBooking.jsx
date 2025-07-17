@@ -24,8 +24,8 @@ const Box = styled.div`
     border-radius: var(--border-radius-md);
     padding: 2.4rem 4rem;
 
-    background-color: ${(props) =>
-        props.isPaid ? "var(--color-brand-100)" : "var(--color-red-100)"};
+    /* background-color: ${(props) =>
+        props.isPaid ? "var(--color-brand-100)" : "var(--color-red-100)"}; */
 `;
 
 function CheckinBooking() {
