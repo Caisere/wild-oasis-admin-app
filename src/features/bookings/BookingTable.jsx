@@ -14,7 +14,7 @@ function BookingTable() {
 
     // on loading state
     if (isLoading) return <Spinner />
-
+    
     // ui when there is no booking
     if (!bookings?.length) <Empty resourceName='bookings' />
 

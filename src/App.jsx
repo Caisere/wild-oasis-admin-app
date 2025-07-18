@@ -4,14 +4,16 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 import { Toaster } from "react-hot-toast"
 import ProtectedRoute from "./ui/ProtectedRoute"
-// import DarkModeProvider from "./context/DarkModeContext"
+
+
+
 import AppLayout from "./ui/AppLayout"
 
 const DashBoard = lazy(() => import('./pages/Dashboard'))
 const Bookings = lazy(() => import('./pages/Bookings'))
 const Booking = lazy(() => import('./pages/Booking'))
 const Cabins = lazy(() => import('./pages/Cabins'))
-const Users = lazy(() => import('./pages/Users'))
+const CreateUsers = lazy(() => import('./pages/CreateUsers'))
 const Settings = lazy(() => import('./pages/Settings'))
 const Account = lazy(() => import('./pages/Account'))
 const Login = lazy(() => import('./pages/Login'))
@@ -50,7 +52,7 @@ function App () {
                         <Route path="bookings/:bookingId" element={<Booking />} />
                         <Route path="checkin/:bookingId" element={<CheckIn />} />
                         <Route path="cabins" element={<Cabins/>} />
-                        <Route path="users" element={<Users/>} />
+                        <Route path="createusers" element={<CreateUsers/>} />
                         <Route path="settings" element={<Settings/>} />
                         <Route path="account" element={<Account/>} />   
                     </Route>

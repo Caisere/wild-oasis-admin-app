@@ -18,6 +18,7 @@ import ButtonText from "../../ui/ButtonText";
 import Spinner from '../../ui/Spinner'
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Modal from "../../ui/Modal";
+import Empty from "../../ui/Empty";
 
 
 
@@ -48,6 +49,7 @@ function BookingDetail() {
     // ui for loading state
     if(isLoading) return <Spinner />
     
+    if(!booking) return <Empty resourceName='booking' />
     
     const {status, id: bookingId} = booking
 
