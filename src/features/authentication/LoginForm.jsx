@@ -12,8 +12,8 @@ import ButtonIcon from "../../ui/ButtonIcon";
 
 
 function LoginForm() {
-    const [email, setEmail] = useState("omoshola.codes@gmail.com");
-    const [password, setPassword] = useState("adminpassword");
+    const [email, setEmail] = useState(" ");
+    const [password, setPassword] = useState(" ");
     const [showPassword, setShowPassword] = useState(false)
 
     const {login, isLoggingIn} = useLogin()
