@@ -19,7 +19,10 @@ const Account = lazy(() => import('./pages/Account'))
 const Login = lazy(() => import('./pages/Login'))
 const PageNotFound = lazy(() => import('./pages/PageNotFound'))
 // const AppLayout = lazy(() => import('./ui/AppLayout'))
+const Guests = lazy(() => import('./pages/guests'))
+const Guest = lazy(() => import('./pages/Guest'))
 const CheckIn = lazy(() => import('./pages/Checkin')) 
+// const GuestDetails = lazy(() => import('./pages/GuestDetails')) 
 
 
 
@@ -55,6 +58,8 @@ function App () {
                         <Route path="createusers" element={<CreateUsers/>} />
                         <Route path="settings" element={<Settings/>} />
                         <Route path="account" element={<Account/>} />   
+                        <Route path="guests" element={<Guests />} />
+                        <Route path="guests/:guestId" element={<Guest />} />
                     </Route>
                     <Route path="login" element={<Login/>} />
                     <Route path="*" element={<PageNotFound/>} />

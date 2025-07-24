@@ -80,12 +80,12 @@ function MainNav () {
                         Create Users
                     </StyledNavLink>
                 </li>
-                {/* <li>
-                    <StyledNavLink to="/users">
+                <li>
+                    <StyledNavLink to="/guests">
                         <span><HiOutlineUsers /></span>
-                        Users
+                        Guests
                     </StyledNavLink>
-                </li> */}
+                </li>
                 <li>
                     <StyledNavLink to="/settings">
                         <span><HiOutlineCog6Tooth /></span>
