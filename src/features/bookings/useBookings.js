@@ -27,7 +27,7 @@ export function useBookings() {
         queryFn: () => getBookings({filter, sortBy, page})
     })
 
-    const pageCount = count / PAGE_SIZE // 24 / 6 = 4
+    const pageCount = count / PAGE_SIZE // 24 / 6 = 5
 
     // prefetch for next page
     if (page < pageCount) {
